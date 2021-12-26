@@ -1,0 +1,40 @@
+{%extends 'Base.html'%}
+{%block title%}
+<h1>دروس</h1>
+{%endblock%}
+{%block forms%}
+<form id="add" method='post' action='#'>
+    <fieldset>
+        <legend>افزودن درس:</legend>
+        <label for="name">نام:</label>
+        <input name='name' type="text"/><br>
+        <label for="weight">ضریب:</label>
+        <input name="weight" type="number">
+        <input type="submit" name='submit' value='add'>
+    </fieldset>
+</form>
+<form id='remove' method="post" action='#'>
+<fieldset>
+    <legend>پاک کردن درس</legend>
+    <label for='id'>شماره :</label>
+    <input name="id" type="number">
+    <input type="submit" name='submit' value='remove'>
+</fieldset>
+</form>
+{%endblock%}
+{%block data%}
+<table class='data_table'>
+    <tr>
+        <td>id</td>
+        <td>Weight</td>
+        <td>Title</td>
+    </tr>
+    {%for i in lessons%}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+    </tr>
+    {%endfor%}
+{%endblock%}
+</table>
