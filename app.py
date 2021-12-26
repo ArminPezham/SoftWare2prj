@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request#1
 from uuid import uuid4
 import pymysql
 conn=pymysql.connect(host='localhost',user='root',password='armin1379',db='swprj')
