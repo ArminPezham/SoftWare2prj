@@ -1,0 +1,56 @@
+{%extends 'Base.html'%}
+{%block title%}
+<h1>کارنامه</h1>
+{%endblock%}
+{%block forms%}
+<form id="add" method='post' action='#'>
+    <fieldset>
+        <legend>افزودن کارنامه:</legend>
+        <label for='sid'>شماره دانش‌آموز:</label>
+        <input name='sid' type="number"><br>
+        <label for='lid'>شماره درس:</label>
+        <input name='lid' type='number'><br>
+        <label for='term1'>مستمر ترم نخست:</label><br>
+        <input name='term1' type="number" step="0.01"><br>
+        <label for='term2' rows='2' cols='5'>مستمر ترم دوم:</label>
+        <input name='term2' type="number" step="0.01"><br>
+        <label for='final1'>پابانی ترم نخست:</label>
+        <input type="number" min='0' name='final1' step='0.01'><br>
+        <label for='final2'>پایانی ترم دوم:</label>
+        <input type="number" min='0' name='final2' step='0.01'>
+        <input type="submit" name="submit" value="add">
+    </fieldset>
+</form>
+<form id='remove' method="post" action='#'>
+<fieldset>
+    <legend>حذف کارنامه:</legend>
+    <label for='sid'>شماره دانش‌آموز:</label>
+    <input name='sid' type="number" step='0.01'>
+    <label for='lid'>شماره درس:</label>
+    <input name='lid' type='number' step='0.01'>
+    <input type="submit" name='submit' value='remove'>
+</fieldset>
+</form>
+{%endblock%}
+{%block data%}
+<table class='data_table'>
+    <tr>
+        <td>Lesson</td>
+        <td>Student</td>
+        <td>term1</td>
+        <td>final1</td>
+        <td>term2</td>
+        <td>final2</td>
+    </tr>
+    {%for i in sections%}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}</td>
+        <td>{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+    </tr>
+    {%endfor%}
+{%endblock%}
+</table>
