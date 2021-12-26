@@ -1,0 +1,75 @@
+{%extends 'Base.html'%}
+{%block title%}
+<h1>کلاس‌ها</h1>
+{%endblock%}
+{%block forms%}
+<form id="add" method='post' action='#'>
+    <fieldset>
+        <legend>افزودن کلاس:</legend>
+        <label for="lid">شماره درس:</label>
+        <input name="lid" type="number"><br>
+        <label for="tid">شماره استاد:</label>
+        <input name="tid" type="number"><br>
+        <label>روز:</label>
+        <input list="days" name='day'>
+        <datalist id='days'>
+            <option value='satur'>شنبه</option>
+            <option value='sun'>یکشنبه</option>
+            <option value='mon'>دوشنبه</option>
+            <option value='tues'>سه‌شنبه</option>
+            <option value='wednes'>چهارشنبه</option>
+        </datalist><br>
+        <label for="hour">ساعت:</label>
+        <input name='minute' type='number' min='0' max='59'>
+        <label>:</label>
+        <input name="hour" type="number" min='8' max='15'>
+        <br>
+        <input type="submit" name='submit' value='add'>
+    </fieldset>
+</form>
+<form id='remove' method="post" action='#'>
+<fieldset>
+    <legend>حذف کلاس:</legend>
+        <label for="lid">شماره درس:</label>
+        <input name="lid" type="number"><br>
+        <input list="days" name='day'>
+        <datalist id='days'>
+            <option value='satur'>شنبه</option>
+            <option value='sun'>یکشنبه</option>
+            <option value='mon'>دوشنبه</option>
+            <option value='tues'>سه‌شنبه</option>
+            <option value='wednes'>چهارشنبه</option>
+        </datalist><br>
+        <label for="hour">ساعت:</label>
+        <input name='minute' type='number' min='0' max='59'>
+        <label>:</label>
+        <input name="hour" type="number" min='8' max='15'>
+        <br>
+        <input type="submit" name='submit' value='remove'>
+</fieldset>
+</form>
+{%endblock%}
+{%block data%}
+<table class='data_table'>
+    <tr>
+        <td>Id</td>
+        <td>Lesson</td>
+        <td>Day</td>
+        <td>Time</td>
+        <td>Teacher</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    {%for i in classes%}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+        <td>{{i[3]}}:{{i[4]}}</td>
+        <td>{{i[5]}}</td>
+        <td>{{i[6]}}</td>
+        <td>{{i[7]}}</td>
+    </tr>
+    {%endfor%}
+{%endblock%}
+</table>
