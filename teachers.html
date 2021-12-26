@@ -1,0 +1,43 @@
+{%extends 'Base.html'%}
+{%block title%}
+<h1>آموزگاران</h1>
+{%endblock%}
+{%block forms%}
+<form id="add" method='post' action='#'>
+    <fieldset>
+        <legend>افزودن آموزگار:</legend>
+        <label for="id">شماره ملی:</label>
+        <input name='id' type="number"/><br>
+        <label for="fname">نام:</label>
+        <input name='fname' type="text"/><br>
+        <label for="lname">نام خانوادگی:</label>
+        <input name='lname' type="text"/>
+        <input type="submit" name='submit' value='add'>
+    </fieldset>
+</form>
+<form id='remove' method="post" action='#'>
+<fieldset>
+    <legend>پاک کردن آموزگار</legend>
+    <label for='id'>شماره ملی:</label>
+    <input name="id" type="number">
+    <input type="submit" name='submit' value='remove'>
+</fieldset>
+</form>
+<a href='schedules'>برنامه کاری استادان</a>
+{%endblock%}
+{%block data%}
+<table class='data_table'>
+    <tr>
+        <td>id</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+    </tr>
+    {%for i in teachers%}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+        <td>{{i[2]}}</td>
+    </tr>
+    {%endfor%}
+{%endblock%}
+</table>
