@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Schedules</title>
+        <style>
+            body
+            {
+                direction: rtl;
+            }
+            table
+            {
+                border-style: solid;
+                border-color: gray;
+                border-width:1px 1px 1px 1px;
+                position:absolute;
+            }
+            table tr td
+            {
+                border-style: solid;
+                border-color: gray;
+                border-width:1px 1px 1px 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>برنامه کلاس‌ها</h1>
+        <form action='#' method="post">
+            <label for='id'>شماره استاد:</label>
+            <input name='id' type='number'>
+            <input type='submit'>
+        </form>
+        {%block show%}
+        <h2>{{name}}</h2>
+        <table>
+            <tr>
+                <td>ID</td>
+                <td>Title</td>
+                <td>Day</td>
+                <td>Time</td>
+            </tr>
+            {% for i in classes%}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}:{{i[4]}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        {%endblock%}
+    </body>
+</html>
