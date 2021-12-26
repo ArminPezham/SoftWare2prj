@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reports</title>
+        <style>
+            body
+            {
+                direction: rtl;
+            }
+            table
+            {
+                border-style: solid;
+                border-color: gray;
+                border-width: 1px 1px 1px 1px;
+                position: absolute;
+            }
+            table tr td
+            {
+                border-style: solid;
+                border-color: gray;
+                border-width: 1px 1px 1px 1px;
+            }
+        </style>
+    </head>
+    <body>
+        <form action='#' method="post">
+                <label for='id'>شماره دانش‌آموز:</label>
+                <input name='id' type="number">
+                <input type='submit' value='submit'>
+        </form>
+        {%block show%}
+        <h2>{{name}}</h2>
+        <table>
+            <tr>
+                <td>Student ID</td>
+                <td>Lesson ID</td>
+                <td>Title</td>
+                <td>Term1</td>
+                <td>Final1</td>
+                <td>Term2</td>
+                <td>Final2</td>
+                <td>Average</td>
+            </tr>
+            {% for i in datas%}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td>{{i[3]}}</td>
+                <td>{{i[4]}}</td>
+                <td>{{i[5]}}</td>
+                <td>{{i[6]}}</td>
+                <td>{{(i[3]+2*i[4]+i[5]+4*i[6])/8}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+        {%endblock%}
+    </body>
+</html>
